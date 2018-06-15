@@ -1,0 +1,44 @@
+/* **************** COMMON ****************** */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: block;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body {
+	background: #eee;
+	color: #000;
+	// display: flex;
+	// min-height: 100vh;
+	// flex-direction: column;
+}
+
+.container {
+	margin: auto;
+	max-width: 1054px;
+	padding: 0 15px;
+}
+
+// main {
+// 	flex: 1 0 auto;
+// }
+
+// html,
+// body {
+// 	height: 100%;
+// }
+
+.img {
+	max-width: 100%;
+	height: auto;
+}
+
+.nav-link {
+    .mat-button-focus-overlay {
+        display: none;
+    }
+}
