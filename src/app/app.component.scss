@@ -1,0 +1,12 @@
+.page-content {
+    display: flex;
+    height: 100%;
+
+    .app-sidebar {
+        width: 21.2%;
+    }
+
+    .app-main-content {
+        width: 78.8%;
+    }
+}

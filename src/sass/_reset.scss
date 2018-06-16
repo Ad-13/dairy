@@ -31,6 +31,13 @@ menu, nav, section, summary {
 html {
     box-sizing: border-box;
 }
+html {
+    min-height: 100%;
+}
+
+body {
+    height: 100%;
+}
 
 *, *:before, *:after {
     box-sizing: inherit;
