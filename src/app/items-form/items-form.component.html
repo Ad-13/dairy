@@ -1,4 +1,9 @@
-<form class="items-form">
-    <input class="input" placeholder="Type name here...">
+<form class="items-form"
+    (submit)="onSubmit($event, addInput.value);addInput.value=''">
+    <input class="input"
+        required 
+        minlength="4" 
+        placeholder="Type name here..." 
+        #addInput>
     <button type="submit" class="btn btn--add">Add new</button>
 </form>

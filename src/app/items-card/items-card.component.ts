@@ -30,8 +30,8 @@ export class ItemsCardComponent implements OnInit {
     this.selectedItem = item;
   }
 
-  deleteItem(deletedItem: Item): void {
-    this.items = this.items.filter(item => deletedItem.id !== item.id);
+  updateItems(newItems: Item[]): void {
+    this.items = newItems;
   }
 
 }

@@ -21,7 +21,7 @@ export class ItemComponent implements OnInit {
     item: Item;
 
     @Output()
-    deleteEvent: EventEmitter<Item> = new EventEmitter();
+    deleteEvent = new EventEmitter();
 
     constructor(private itemsService: ItemsService) { }
 
@@ -31,6 +31,6 @@ export class ItemComponent implements OnInit {
     deleteItem(event, item: Item) {
         event.stopPropagation();
         this.itemsService.deleteItem(item)
-            .subscribe(deletedItem => this.deleteEvent.emit(deletedItem as Item));
+            .subscribe(itemsList => this.deleteEvent.emit(itemsList));
     }
 }

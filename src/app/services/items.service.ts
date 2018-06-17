@@ -8,7 +8,8 @@ import { Item } from '../interfaces/item';
 import { items } from '../mock-data/mock-items';
 
 import {
-  handleError
+  handleError,
+  isObjAlreadyContained
 } from '../utils/utils';
 
 @Injectable()
@@ -24,11 +25,24 @@ export class ItemsService {
     );
   }
 
-  deleteItem(item: Item): Observable<Item | {}> {
-    console.log('ser deleteItem');
+  addItem(item: Item): Observable<any> {
+    if ( isObjAlreadyContained(item) ) {
+      return of(this.itemsList).pipe(
+        catchError(handleError('addItem'))
+      );
+    }
+    item.id = this.itemsList.length;
+    item.comments = [];
+    this.itemsList.push(item);
+    return of(this.itemsList).pipe(
+      catchError(handleError('addItem'))
+    );
+  }
+
+  deleteItem(item: Item): Observable<any> {
     this.itemsList = this.itemsList.filter(listItem => listItem.id !== item.id);
-    return of(item).pipe(
-      catchError(handleError<Item>('deleteItem', {} as Item))
+    return of(this.itemsList).pipe(
+      catchError(handleError('deleteItem'))
     );
   }
 
