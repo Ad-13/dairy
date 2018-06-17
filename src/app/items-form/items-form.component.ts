@@ -21,14 +21,15 @@ export class ItemsFormComponent implements OnInit {
     @Output()
     addEvent = new EventEmitter();
 
-    ngOnInit() {
+    ngOnInit(): void {
     }
 
-    onSubmit(event, title: string) {
-        console.log('onSubmit');
+    onSubmit(event, title: string): void {
         event.preventDefault();
+
         title = title.trim();
         if (!title) { return; }
+
         this.itemsService.addItem({ title } as Item)
             .subscribe(itemsList => this.addEvent.emit(itemsList));
     }

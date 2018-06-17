@@ -13,9 +13,9 @@ body {
 	background: #eee;
 	color: #000;
 	font-family: 'OpenSans-Regular';
-	// display: flex;
-	// min-height: 100vh;
-	// flex-direction: column;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 .container {
@@ -45,9 +45,11 @@ body {
 }
 
 .app-root {
-	display: block;
-	height: 100%;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
+
 .btn {
 	background: transparent;
 	border-radius: 3px;

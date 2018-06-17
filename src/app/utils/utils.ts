@@ -12,7 +12,15 @@ export function handleError<T>(operation = 'operation', result?: T) {
     };
 }
 
-export function setNewId(itemsList: Item[], item: Item): void {
+export function buildNewItem(itemsList: Item[], item: Item): Item {
+    return {
+        id: setNewId(itemsList, item),
+        title: item.title,
+        comments: []
+    };
+}
+
+export function setNewId(itemsList: Item[], item: Item): number {
     item.id = 0;
 
     for (let i = 0; i < itemsList.length; ++i) {
@@ -22,7 +30,7 @@ export function setNewId(itemsList: Item[], item: Item): void {
         }
     }
 
-    item.id++;
+    return ++item.id;
 }
 
 export function hasTitle(obj1, obj2): boolean {
@@ -30,7 +38,7 @@ export function hasTitle(obj1, obj2): boolean {
 }
 
 export function isObjAlreadyContained(itemsList: Item[], item: Item): boolean {
-    return itemsList.some((listItem: Item) => {
+    return itemsList.some((listItem) => {
         return hasTitle(listItem, item);
     });
 }

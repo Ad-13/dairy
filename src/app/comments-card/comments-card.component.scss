@@ -1,3 +1,17 @@
+.comments-card {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    padding: 15px 0;
+    z-index: -1;
+    &.open {
+        opacity: 1;
+        z-index: 1;
+    }
+}
+
 .title {
     color: #565A69;
     font-size: 36px;
@@ -44,4 +58,11 @@
     .txt {
         line-height: 1.5;
     }
+}
+
+.no-match-msg {
+    color: #666;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0;
 }

@@ -25,12 +25,15 @@ export class ItemComponent implements OnInit {
 
     constructor(private itemsService: ItemsService) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
     }
 
-    deleteItem(event, item: Item) {
+    deleteItem(event, itemToDelete: Item): void {
         event.stopPropagation();
-        this.itemsService.deleteItem(item)
-            .subscribe(itemsList => this.deleteEvent.emit(itemsList));
+
+        this.itemsService.deleteItem(itemToDelete)
+            .subscribe(deletedItem => {
+                this.deleteEvent.emit(deletedItem);
+            });
     }
 }

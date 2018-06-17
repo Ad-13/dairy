@@ -1,13 +1,15 @@
-<p class="title">Items</p>
+<div class="items-card">
+    <p class="title">Items</p>
 
-<app-items-form (addEvent)="updateItems($event)"></app-items-form>
+    <app-items-form (addEvent)="updateItems($event)"></app-items-form>
 
-<div class="items-list">
-    <app-item *ngFor="let item of items"
-        class="items-list__item"
-        [class.active]="item === selectedItem"
-        [item]="item" 
-        (deleteEvent)="updateItems($event)"
-        (click)="onItemClick(item)">
-    </app-item>
+    <div class="items-list">
+        <app-item *ngFor="let item of items" 
+                class="items-list__item" 
+                [class.active]="item === selectedItem" 
+                [item]="item" 
+                (deleteEvent)="onDelete($event)"
+            (click)="onItemSelect(item)">
+        </app-item>
+    </div>
 </div>

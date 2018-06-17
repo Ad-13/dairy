@@ -1,24 +1,17 @@
-<p class="title">Comments #2</p>
+<div class="comments-card"
+    [class.open]="item">
+    <p *ngIf="item" class="title">Comments #{{item.id}}</p>
 
-<ul class="comments-list">
-    <li class="comments-list__item">
-        <div class="comments-img"></div>   
-        <div class="comments-txt">
-            <p class="txt">A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s</p>
-        </div>   
-    </li>
-    <li class="comments-list__item">
-        <div class="comments-img"></div>   
-        <div class="comments-txt">
-            <p class="txt">A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s</p>
-        </div>   
-    </li>
-    <li class="comments-list__item">
-        <div class="comments-img"></div>   
-        <div class="comments-txt">
-            <p class="txt">A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980sA variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980sA variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s</p>
-        </div>   
-    </li>
-</ul>
+    <ul *ngIf="item && item.comments.length" class="comments-list">
+        <li *ngFor="let comment of item.comments" class="comments-list__item">
+            <div class="comments-img"></div>
+            <div class="comments-txt">
+                <p class="txt">{{comment.text}}</p>
+            </div>
+        </li>
+    </ul>
 
-<app-comments-form></app-comments-form>
+    <p *ngIf="item && !item.comments.length" class="no-match-msg">There are no commetns :)</p>
+
+    <app-comments-form *ngIf="item" (submitEvent)="onSubmit($event)"></app-comments-form>
+</div>
