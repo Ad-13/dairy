@@ -1,58 +1,6 @@
 <main class="main-content">
     <div class="card-list">
-        <div class="card-list__item items-card">
-            <p class="title">Items</p>
-            
-            <form class="items-form">
-                <input class="input" placeholder="Type name here...">
-                <button type="submit" class="btn btn--add">Add new</button>
-            </form>
-
-            <ul class="items-list">
-                <li class="items-list__item">
-                    <p class="item-txt">
-                        <span class="txt">First item with custom name</span>
-                        <span class="badge">132</span>
-                    </p>
-                    <button class="btn btn--delete">Delete</button>
-                </li>
-                <li class="items-list__item active">
-                    <p class="item-txt">
-                        <span class="txt">Second item is active</span>
-                        <span class="badge">3</span>
-                    </p>
-                    <button class="btn btn--delete">Delete</button>
-                </li>
-            </ul>
-        </div>
-        <div class="card-list__item comments-card">
-            <p class="title">Comments #2</p>
-            <ul class="comments-list">
-                <li class="comments-list__item">
-                    <div class="comments-img"></div>   
-                    <div class="comments-txt">
-                        <p class="txt">A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s</p>
-                    </div>   
-                </li>
-                <li class="comments-list__item">
-                    <div class="comments-img"></div>   
-                    <div class="comments-txt">
-                        <p class="txt">A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s</p>
-                    </div>   
-                </li>
-                <li class="comments-list__item">
-                    <div class="comments-img"></div>   
-                    <div class="comments-txt">
-                        <p class="txt">A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980sA variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980sA variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s</p>
-                    </div>   
-                </li>
-            </ul>
-            <form class="comments-form">
-                <div class="comments-form__img"></div>
-                <div class="comments-form__txt">
-                    <textarea class="textarea" name="comment" cols="30" rows="2"></textarea>
-                </div>
-            </form>
-        </div>
+        <app-items-card class="card-list__item items-card"></app-items-card>
+        <app-comments-card class="card-list__item comments-card"></app-comments-card>
     </div>
 </main>

@@ -1,0 +1,70 @@
+.title {
+    color: #565A69;
+    font-size: 36px;
+    font-weight: lighter;
+    font-family: 'OpenSans-Light';
+    margin-bottom: 23px;
+    padding: 0 17px;
+}
+
+.comments-list {
+    padding: 5px 21px 0 18px;
+}
+
+.comments-list__item {
+    background: transparent;
+    border-bottom: 1px solid #f2f2f2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px 0 17px;
+    &:nth-child(2n) {
+        .comments-img {
+            background: #47568C;
+        }
+    }
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+.comments-img {
+    background: #FF8A00;
+    height: 52px;
+    width: 52px;
+}
+
+.comments-txt {
+    color: #666;
+    font-size: 12px;
+    width: 84%;
+    position: relative;
+    top: -3px;
+
+    .txt {
+        line-height: 1.5;
+    }
+}
+
+.comments-form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 21px 0 18px;
+}
+
+.comments-form__img {
+    background: #E6E6E6;
+    height: 52px;
+    width: 52px;
+}
+
+.comments-form__txt {
+    width: 84%;
+
+    .textarea {
+        min-height: 70px;
+        resize: vertical;
+        width: 100%;
+    }
+}

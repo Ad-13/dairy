@@ -1,0 +1,12 @@
+<p class="title">Items</p>
+
+<app-items-form></app-items-form>
+
+<div class="items-list">
+    <app-item *ngFor="let item of items"
+        class="items-list__item"
+        [class.active]="item === selectedItem"
+        [item]="item" 
+        (click)="onItemClick(item)">
+    </app-item>
+</div>
