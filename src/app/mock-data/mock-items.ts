@@ -1,6 +1,6 @@
 import { Item } from '../interfaces/item';
 
-export const ITEMS: Item[] = [
+export let items: Item[] = [
   {
     id: 1,
     title: 'First item with custom name',

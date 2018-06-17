@@ -26,9 +26,12 @@ export class ItemsCardComponent implements OnInit {
       .subscribe(items => this.items = items);
   }
 
-  onItemClick(item: Item) {
-    console.log('onSelect');
+  onItemClick(item: Item): void {
     this.selectedItem = item;
+  }
+
+  deleteItem(deletedItem: Item): void {
+    this.items = this.items.filter(item => deletedItem.id !== item.id);
   }
 
 }

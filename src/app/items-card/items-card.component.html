@@ -7,6 +7,7 @@
         class="items-list__item"
         [class.active]="item === selectedItem"
         [item]="item" 
+        (deleteEvent)="deleteItem($event)"
         (click)="onItemClick(item)">
     </app-item>
 </div>
