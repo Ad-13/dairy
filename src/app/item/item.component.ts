@@ -31,6 +31,6 @@ export class ItemComponent implements OnInit {
     deleteItem(event, item: Item) {
         event.stopPropagation();
         this.itemsService.deleteItem(item)
-            .subscribe(deletedItem => this.deleteEvent.emit(deletedItem));
+            .subscribe(deletedItem => this.deleteEvent.emit(deletedItem as Item));
     }
 }
