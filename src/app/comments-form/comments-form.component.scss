@@ -1,0 +1,22 @@
+.comments-form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 21px 0 18px;
+}
+
+.comments-form__img {
+    background: #E6E6E6;
+    height: 52px;
+    width: 52px;
+}
+
+.comments-form__txt {
+    width: 84%;
+
+    .textarea {
+        min-height: 70px;
+        resize: vertical;
+        width: 100%;
+    }
+}

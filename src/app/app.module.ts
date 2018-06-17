@@ -11,6 +11,7 @@ import { ItemsFormComponent } from './items-form/items-form.component';
 import { ItemComponent } from './item/item.component';
 
 import { ItemsService } from './services/items.service';
+import { CommentsFormComponent } from './comments-form/comments-form.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ItemsService } from './services/items.service';
     ItemsCardComponent,
     CommentsCardComponent,
     ItemsFormComponent,
-    ItemComponent
+    ItemComponent,
+    CommentsFormComponent
   ],
   imports: [
     BrowserModule,

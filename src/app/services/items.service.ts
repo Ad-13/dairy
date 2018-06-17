@@ -8,42 +8,43 @@ import { Item } from '../interfaces/item';
 import { items } from '../mock-data/mock-items';
 
 import {
-  handleError,
-  isObjAlreadyContained
+    handleError,
+    isObjAlreadyContained,
+    setNewId
 } from '../utils/utils';
 
 @Injectable()
 export class ItemsService {
 
-  public itemsList: Item[] = items;
+    public itemsList: Item[] = items;
 
-  constructor() { }
+    constructor() { }
 
-  getItems(): Observable<Item[]> {
-    return of(this.itemsList).pipe(
-      catchError(handleError<Item[]>('getItems', []))
-    );
-  }
-
-  addItem(item: Item): Observable<any> {
-    if ( isObjAlreadyContained(item) ) {
-      return of(this.itemsList).pipe(
-        catchError(handleError('addItem'))
-      );
+    getItems(): Observable<Item[]> {
+        return of(this.itemsList).pipe(
+            catchError(handleError<Item[]>('getItems', []))
+        );
     }
-    item.id = this.itemsList.length;
-    item.comments = [];
-    this.itemsList.push(item);
-    return of(this.itemsList).pipe(
-      catchError(handleError('addItem'))
-    );
-  }
 
-  deleteItem(item: Item): Observable<any> {
-    this.itemsList = this.itemsList.filter(listItem => listItem.id !== item.id);
-    return of(this.itemsList).pipe(
-      catchError(handleError('deleteItem'))
-    );
-  }
+    addItem(item: Item): Observable<any> {
+        if (isObjAlreadyContained(this.itemsList, item)) {
+            return of(this.itemsList).pipe(
+                catchError(handleError('addItem'))
+            );
+        }
+        setNewId(this.itemsList, item);
+        item.comments = [];
+        this.itemsList.push(item);
+        return of(this.itemsList).pipe(
+            catchError(handleError('addItem'))
+        );
+    }
+
+    deleteItem(item: Item): Observable<any> {
+        this.itemsList = this.itemsList.filter(listItem => listItem.id !== item.id);
+        return of(this.itemsList).pipe(
+            catchError(handleError('deleteItem'))
+        );
+    }
 
 }
