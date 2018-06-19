@@ -22,10 +22,13 @@ export class ItemsCardComponent implements OnInit, OnDestroy {
     constructor(private itemsService: ItemsService) { }
 
     ngOnInit(): void {
-        this.subscription = this.itemsService.subscribeUpdateCommentObserver()
-            .subscribe(() => {
+        this.subscription = this.itemsService.watchItemsList()
+            .subscribe((id?) => {
                 this.getItems();
-                this.itemsService.emitSelectedItemObserver(this.selectedItem);
+                if (id) {
+                    this.updateSelectedItem(id);
+                }
+                // this.itemsService.notifyAboutSelectedItem(this.selectedItem);
             });
         this.getItems();
     }
@@ -34,27 +37,31 @@ export class ItemsCardComponent implements OnInit, OnDestroy {
         this.subscription.unsubscribe();
     }
 
+    updateSelectedItem(id): void {
+        for (let i = 0; i < this.items.length; i++) {
+            const item = this.items[i];
+            if (id === item.id) {
+                this.selectedItem = item;
+                this.itemsService.notifyAboutSelectedItem(this.selectedItem);
+                break;
+            }
+        }
+    }
+
     getItems(): void {
-        this.itemsService.getItems()
-            .subscribe(items => this.items = items);
+        this.items = this.itemsService.getItems();
     }
 
     onItemSelect(item: Item): void {
         this.selectedItem = item;
-        this.itemsService.emitSelectedItemObserver(this.selectedItem);
+        this.itemsService.notifyAboutSelectedItem(this.selectedItem);
     }
 
-    onDelete(item: Item): void {
-        this.getItems();
-
-        if (this.selectedItem && this.selectedItem.id === item.id) {
+    onDelete(deletedItemId: number): void {
+        if (this.selectedItem && this.selectedItem.id === deletedItemId) {
             this.selectedItem = null;
         }
-        this.itemsService.emitSelectedItemObserver(this.selectedItem);
-    }
-
-    updateItems(newItems: Item[]): void {
-        this.items = newItems;
+        this.itemsService.notifyAboutSelectedItem(this.selectedItem);
     }
 
 }

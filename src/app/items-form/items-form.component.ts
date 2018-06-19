@@ -7,8 +7,6 @@ import {
 
 import { ItemsService } from '../services/items.service';
 
-import { Item } from '../interfaces/item';
-
 @Component({
     selector: 'app-items-form',
     templateUrl: './items-form.component.html',
@@ -30,8 +28,7 @@ export class ItemsFormComponent implements OnInit {
         title = title.trim();
         if (!title) { return; }
 
-        this.itemsService.addItem({ title } as Item)
-            .subscribe(itemsList => this.addEvent.emit(itemsList));
+        this.itemsService.addItem(title);
     }
 
 }

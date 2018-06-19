@@ -26,7 +26,7 @@ export class CommentsCardComponent implements OnInit, OnDestroy {
     constructor(private itemsService: ItemsService) { }
 
     ngOnInit(): void {
-        this.subscription = this.itemsService.subscribeSelectedItemObserver()
+        this.subscription = this.itemsService.watchSelectedItem()
             .subscribe((item: Item) => {
                 this.item = item;
             });
@@ -37,8 +37,7 @@ export class CommentsCardComponent implements OnInit, OnDestroy {
     }
 
     onSubmit(newComment): void {
-        this.itemsService.updateComment(this.item, newComment);
-        this.itemsService.emitUpdateCommentObserver();
+        this.itemsService.updateComment(this.item.id, newComment);
     }
 
 }
