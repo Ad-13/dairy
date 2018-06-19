@@ -1,8 +1,6 @@
 import {
     Component,
-    OnInit,
-    Output,
-    EventEmitter
+    OnInit
 } from '@angular/core';
 
 import { ItemsService } from '../services/items.service';
@@ -15,9 +13,6 @@ import { ItemsService } from '../services/items.service';
 export class ItemsFormComponent implements OnInit {
 
     constructor(private itemsService: ItemsService) { }
-
-    @Output()
-    addEvent = new EventEmitter();
 
     ngOnInit(): void {
     }

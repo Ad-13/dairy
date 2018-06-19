@@ -6,7 +6,7 @@
     <div class="items-list">
         <app-item *ngFor="let item of items" 
                 class="items-list__item" 
-                [class.active]="item === selectedItem" 
+                [class.active]="selectedItem ? item.id === selectedItem.id : null" 
                 [item]="item" 
                 (deleteEvent)="onDelete($event)"
             (click)="onItemSelect(item)">

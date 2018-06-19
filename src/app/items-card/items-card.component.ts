@@ -28,7 +28,6 @@ export class ItemsCardComponent implements OnInit, OnDestroy {
                 if (id) {
                     this.updateSelectedItem(id);
                 }
-                // this.itemsService.notifyAboutSelectedItem(this.selectedItem);
             });
         this.getItems();
     }
